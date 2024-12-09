@@ -1,0 +1,956 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+ 
+ 
+
+body::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+max-width: fit-content;
+width: 100%;
+margin: 0;
+background: url('bg.jpg') no-repeat center center/cover;
+mix-blend-mode: multiply; /* Adjust blend effect */
+z-index: -1;
+}
+
+ 
+body {
+  background: url('bg.jpg') no-repeat center center/cover;
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay if needed */
+}
+
+.background-container {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('bg.jpg') no-repeat center center/cover;
+  z-index: -1; /* Ensures it's behind other content */
+}
+
+.logo img{
+max-height: 50px; 
+}
+
+/*==============header==============*/
+ /* Header Styling */
+header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); 
+  border-bottom: 4px solid #00FFFF;
+  opacity: 1; /* Ensure no transparency */
+  background: linear-gradient(180deg, #005F73, #002B36); /* Add missing gradient */
+  z-index: 1000; /* Keep header on top of other elements */
+}
+
+/* Logo Styling */
+.logo img {
+  display: block;
+  max-width: 100%; /* Ensure logo scales properly */
+  height: auto;
+}
+
+/* Navigation Styling */
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav__menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav__list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#nav-menu a{
+  text-decoration: none;
+
+}
+
+.nav__item {
+  margin-left: 20px;
+}
+ 
+.nav__link {
+  list-style: none;
+  color: #ffffff;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.nav__link:hover {
+  background: linear-gradient(90deg, #319C93, #00A36C);
+  color: #333;
+  transform: rotate(5deg);
+}
+
+/* Active link styling */
+.nav__link.active-link {
+  background: linear-gradient(90deg, #319C93, #00A36C);
+  color: #fff;
+  text-decoration: underline;
+} 
+
+
+/* Toggle Button */
+.nav__toggle {
+  display: none; /* Hidden by default for larger screens */
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Close Button */
+.nav__close {
+  display: none; /* Hidden by default */
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  header {
+    padding: 20px 30px; /* Adjust padding for smaller screens */
+  }
+
+  .nav__menu {
+    display: none; /* Hide menu initially */
+    flex-direction: column; /* Stack items vertically */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #002B36; /* Background for the dropdown */
+    width: 100%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    z-index: 999;
+  }
+
+  .nav__list {
+    flex-direction: column; /* Stack menu items */
+    padding: 20px 0; /* Add vertical padding */
+  }
+
+  .nav__item {
+    margin: 10px 0; /* Add space between menu items */
+  }
+
+  .nav__toggle {
+    display: block; /* Show toggle button */
+  }
+
+  .nav__close {
+    display: block; /* Show close button */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  #nav-menu.show-menu {
+    display: flex; /* Show the menu when toggled */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px 20px; /* Further reduce padding */
+  }
+
+  .nav__link {
+    font-size: 14px; /* Reduce font size */
+    padding: 8px 12px; /* Adjust padding for links */
+  }
+
+  .logo img {
+    width: 150px; /* Scale down logo */
+    height: auto;
+  }
+}
+
+
+  /* HERO SECTION */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 150px 20px; /* Balanced padding */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+/* HERO TEXT */
+.hero-text {
+  margin: 0 auto;
+  max-width: 800px; /* Restricts text width */
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Better readability */
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  font-family: Copperplate, Papyrus, fantasy;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  margin-top:200px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: none; /* Removed the border */
+  border-radius: 0; /* Removed rounded edges */
+  background: transparent; /* Removed background color */
+  color: #ffffff;
+}
+
+/* BUTTON CONTAINER */
+.center {
+    display: flex;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 200px;
+    position: relative;
+    z-index: 2; /* Ensures buttons are above the overlay */
+}
+
+/* BUTTON STYLES */
+.contact__form button,.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #00FFFF;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: #00ffff9f; /* Background highlight on hover */
+    color: #1a535c; /* Text color change on hover */
+}
+
+.btn svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 0.5s ease-in-out;
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+ .btn span {
+  color:whitesmoke;
+    font-size: 18px;
+    font-weight: 500;
+    z-index: 1; /* Keeps text above SVG */
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .center {
+        margin-top: 20px;
+    }
+
+    .btn {
+        width: 150px;
+        height: 50px;
+    }
+
+    .btn span {
+        font-size: 16px;
+    }
+}
+/*0------------home--------------------0*/
+/* Home Section */
+.home {
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 53vh; /* Adjust as needed */
+}
+
+.home-image img {
+  width: 400px;
+  height: 500px;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.6)); /* Shadow with soft edges */
+  transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+/* Hover Effect for Home Image */
+.home-image img:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Gallery Section */
+#gallery {
+  margin: 80px auto 10px;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom right, rgba(248, 215, 217, 0.5), rgba(0, 123, 127, 0.5)); /* Soft gradient */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Heading */
+#gallery h2 {
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: #7FDBFF;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+/* Gallery Grid */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Gallery Items */
+.gallery .col {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery .col:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Gallery Text */
+.gallery h4 {
+  font-size: 1.2rem;
+  color: #000;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.gallery p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0.3rem 0 0;
+}
+
+ 
+ /*======contact========================*/
+ /* General Styles */
+body {
+  flex: 1;
+  flex-direction: row;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a535c, #007B8A, #39CCCC, #7FDBFF);
+  color: #fff;
+}
+
+/* Contact Section */
+ /* Container with a light-colored background */
+.bgcontainer {
+  background-color: #002B36; /* Light gray background */
+  padding: 30px; /* Add space inside the container */
+  border-radius: 20px; /* Rounded corners for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 1200px; /* Restrict container width */
+  margin: 50px auto 200px; /* Center the container */
+}
+
+/* Styling the contact section */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  flex-wrap: wrap; /* Ensure responsiveness */
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+.contact__info {
+  flex: 1; /* Take up equal space */
+  min-width: 300px; /* Ensure it doesn't shrink too small */
+  max-width: 600px; /* Restrict maximum width */
+  padding: 50px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact__info h2 {
+  margin-top: 0;
+}
+
+/* Contact form styling */
+.contact__form {
+  flex: 1; /* Take up equal space */
+  min-width: 300px; /* Ensure it doesn't shrink too small */
+  max-width: 600px; /* Restrict maximum width */
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #1a535c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact__form h2 {
+  margin-top: 0;
+  color: paleturquoise;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* General styles */
+.contact__subtitle, .section__title {
+  font-size: 1.5rem;
+  color: #7FDBFF;
+  margin-bottom: 20px;
+}
+
+.contact__details {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.contact__input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #e0f7fa;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.contact__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+ 
+textarea.contact__input {
+  height: 100px;
+  resize: none;
+}
+
+/* Button styling */
+.button {
+  color: white;
+  padding: 12px 20px; /* Increase padding for better spacing */
+  border: none;
+  border-radius: 8px; /* Slightly more rounded corners for a modern look */
+  cursor: pointer;
+  font-size: 1rem;  
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 150px;  
+  width: 100%; 
+  text-align: center;
+}
+
+/* Hover effects for button */
+.button:hover {
+  background: linear-gradient(135deg, #00FF00, #008000);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  color: #e0e0e0;
+}
+
+/* Focus styles for accessibility */
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    padding: 10px; /* Ensure some space around the content */
+    gap: 15px; /* Add gap between stacked items */
+  }
+
+  .contact__info,
+  .contact__form {
+    max-width: 100%; /* Ensure both contact info and form take full width */
+    padding: 20px; /* Padding for better spacing */
+  }
+}
+
+
+  .bgcontainer {
+    padding: 20px; /* Reduced padding on smaller screens */
+    margin: 20px auto; /* Center the container */
+  }
+  
+  .contact__form, .contact__info {
+    margin-bottom: 20px; /* Add space between form and info */
+  }
+  
+  .contact__input, textarea.contact__input {
+    font-size: 14px; /* Smaller text size */
+  }
+  
+  .button {
+    font-size: 1rem; /* Adjust button text size */
+  }
+
+ 
+
+/*==============form===========*/
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Aquatic theme button */
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.3s;
+}
+
+form button:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    transform: scale(1.05);
+}
+
+.fish {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100px;
+    height: auto;
+    animation: swim 10s linear infinite;
+}
+
+.fish.flipped {
+    transform: scaleX(-1);
+}
+
+@keyframes swim {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+/*==========Login======*/
+.login-container {
+    background-color:#005F73;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-top: 50px;
+     margin-bottom: 300px;
+     margin-left: 800px;
+     font-family: "Roboto Condensed", sans-serif;
+     
+}
+
+.login-container h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-login button {
+    background-color:#00FFFF;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-btn::before {
+    content: url('https://img.icons8.com/color/16/000000/google-logo.png'); /* Google icon URL */
+    margin-right: 5px;
+     
+}
+
+.facebook-btn::before {
+    content: url('https://img.icons8.com/color/16/000000/facebook-new.png'); /* Facebook icon URL */
+    margin-right: 5px;
+}
+
+.or {
+    color: #fff;
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.form-group label {
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color:#002B36;
+    color: #fff;
+}
+
+.form-group input::placeholder {
+    color: #ccc;
+}
+
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff9e60;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #e68950;
+}
+
+.signup {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.signup a {
+    color: #ff9e60;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+ .logfooter{
+    display:block;
+    padding: 0px 0;
+   
+    margin-top: 240px;
+ }
+
+ /* Responsive Design for Tablets and Mobiles */
+@media (max-width: 768px) {
+  .login-container {
+      width: 90%;
+      padding: 20px;
+      margin: 20px auto; /* Adjusted margin for smaller screens */
+  }
+
+  .social-login {
+      flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .social-login button {
+      width: 100%;
+      margin-bottom: 10px; /* Add spacing between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container h2 {
+      font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .form-group label {
+      font-size: 0.9rem; /* Adjust label size */
+  }
+
+  .form-group input {
+      font-size: 0.9rem; /* Adjust input size */
+      padding: 6px; /* Reduce padding for smaller screens */
+  }
+
+  .login-btn {
+      font-size: 1rem; /* Adjust button font size */
+      padding: 8px; /* Reduce button padding */
+  }
+
+  .signup {
+      font-size: 0.9rem; /* Adjust signup text size */
+  }
+}
+
+
+/* FOOTER */
+footer{
+  margin:80px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensures the footer spans the entire width of the page */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); 
+  opacity: 1; /* Ensure no transparency */
+  background: linear-gradient(180deg, #005F73, #002B36); /* Add missing gradient */
+  color: #f1eeee; /* Light text for readability */
+  padding: 20px 0; /* Adds vertical padding for a balanced look */
+  text-align: center;
+  border-top: 3px solid #00FFFF; /* Accent border */
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow at the top */
+  position: relative; /* Ensures it stays part of the normal page flow */
+}
+
+/* FOOTER CONTAINER */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Spacing between sections inside the footer */
+  max-width: 1200px; /* Restricts the width for content alignment */
+  margin: 5px auto 0; /* Centers the footer container */
+  padding: 0 20px; /* Adds padding for mobile responsiveness */
+}
+ 
+
+/* FOOTER LOGO */
+.footer-logo  img {
+   margin:0;
+   display: block;
+   max-width: 100%; /* Ensure logo scales properly */
+   height: auto;
+   background: radial-gradient(circle, rgba(255, 0, 0, 0.6) 20%, #ff0000 80%);
+   border-radius: 10%;
+}
+
+ .follow-us{
+  min-width:250px;
+    margin-bottom:20px;
+    flex-basis:12%;
+    text-align: center;
+}
+
+.footer-links{
+  margin-left: 10px;
+  min-width:250px;
+  margin-bottom:20px;
+  flex-basis:12%;
+  text-align:center;
+}
+
+.contactus{
+  margin-left: 80px;
+min-width:250px;
+margin-bottom:20px;
+flex-basis:12%;
+text-align:left;
+}
+
+.footer-links ul {
+  font-weight: 600;
+  list-style-type: none; /* Removes bullets */
+  padding: 0;            /* Optional: Removes default padding */
+  margin: 0;             /* Optional: Removes default margin */
+}
+
+.follow-us ul {
+  font-weight: 600;
+  list-style-type: none;  
+  padding: 0;             
+  margin: 0;             
+}
+
+.contactus ul {
+  font-weight: 600;
+  list-style-type: none;  
+  padding: 0;             
+  margin: 0;             
+}
+
+ .cpyrt hr{
+  border:none;
+  background: #b5b5b5;
+  height:1px;
+  width: 1200px;
+  margin:20px 0;
+}
+
+ .contactus h3{
+   text-align:justify;
+  color:white;
+}
+
+
+.follow-us li{
+  color:#D3D3D3;
+}
+
+ .contactus li{
+  color: #D3D3D3 ;
+}
+
+.footer-links li{
+  align-items: center;
+}
+
+ .footer-links ul li a {
+  list-style-type: none;
+  text-decoration:none;
+  color: #D3D3D3 ; /* Light color for links */
+  font-size: 16px; /* Readable size */
+  font-weight: 600;
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+
+.footer-links ul li a:hover {
+  color: #00FFFF; /* Accent color on hover */
+}
+
+/*===========================Media Querries=====================================*/
+
+
+
+
+/* RESPONSIVE DESIGN */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row; /* Aligns content in a row for larger screens */
+    justify-content: space-between;
+  }
+
+  .footer-logo, .footer-links {
+    flex: 1;
+    text-align: center;
+  }
+} 
+/* FOOTER - MEDIA QUERY FOR SMALLER SCREENS */
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+    padding: 10px; /* Adds padding for spacing */
+  }
+
+  .footer-logo {
+    margin-bottom: 20px; /* Adds space between sections */
+    text-align: center; /* Centers the logo text */
+  }
+
+  .footer-links, .follow-us, .contactus {
+    flex-basis: 100%; /* Makes each section take the full width */
+    min-width: unset; /* Removes min-width constraint */
+    margin: 0 0 15px 0; /* Uniform spacing, removes left margin */
+    text-align: center; /* Centers text for consistency */
+  }
+
+  .contactus ul, .contactus h3 {
+    text-align: center; /* Ensures contact info aligns properly */
+  }
+
+  .footer-links ul li a {
+    font-size: 14px; /* Reduces font size for smaller screens */
+  }
+
+  .cpyrt hr {
+    width: 90%; /* Adjusts the width to fit smaller screens */
+    margin: 10px auto; /* Centers the line and adds spacing */
+  }
+}
